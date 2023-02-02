@@ -1,0 +1,29 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  font-size: $base-font-size;
+  font-family: "Open Sans";
+}
+
+// @include font-size-headings($scale: 1.25, $maxScale: 5) {
+//   font-family: "Montserrat";
+// }
+// @include breakpoint(sm) {
+//   @include font-size-headings(1.2, 5);
+// }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat";
+}
+
+@each $label, $value in $font-size-headings-responsive {
+  @include breakpoint($label) {
+    @include font-size-headings($value, 5);
+  }
+}

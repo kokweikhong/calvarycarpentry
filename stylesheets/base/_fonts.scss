@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
+$fontDir: "/fonts";
+
+@for $i from 1 through 9 {
+  @include font-face(
+    "Montserrat",
+    $fontDir + "/Montserrat-VariableFont_wght",
+    $i * 100,
+    normal,
+    ttf
+  );
+}
+
+@for $i from 1 through 9 {
+  @include font-face(
+    "Open Sans",
+    $fontDir + "/OpenSans-VariableFont_wdth,wght",
+    $i * 100,
+    normal,
+    ttf
+  );
+}

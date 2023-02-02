@@ -1,0 +1,32 @@
+.section__title {
+  text-align: center;
+  margin: 20px 0;
+  // position: relative;
+  h3 {
+    position: relative;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    padding: 0 0.5rem;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      border-top: 1px solid #333;
+      top: 50%;
+      width: 10%;
+    }
+
+    &::after {
+      left: 100%;
+    }
+
+    &::before {
+      right: 100%;
+    }
+  }
+}

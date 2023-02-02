@@ -1,91 +1,71 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
 
-const inter = Inter({ subsets: ['latin'] })
+// import heroImage from "../public/images/home/calvary_carpentry_banner.jpg";
+
+import SectionTitle from "@/components/SectionTitle";
+import ProductCard from "@/components/home/ProductCard";
+import SectorOfService from "@/components/home/SectorOfService";
+import OtherService from "@/components/home/OtherService";
+import Timeline from "@/components/home/Timeline";
+
+import { home } from "@/components/variables";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <section className="home">
+      <div className="hero" id="hero">
+        <div className="hero__image">
+          <Image {...home.hero.heroImage} />
+        </div>
+        <div className="hero__content">
+          <h1>
+            WE&apos;VE GOT WOOD<span> FOR YOU</span>.
+          </h1>
+          <h2>
+            Avant-Garde woodworkers and visionaries forged from humble
+            beginnings, Calvary is the timber expert for the next generation of
+            property owners.
+          </h2>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+      <div className="clients">
+        <SectionTitle title="clients" />
+      </div>
+
+      <div className="products">
+        {home.products?.map((product, index) => {
+          return <ProductCard key={index} props={product} />;
+        })}
+      </div>
+
+      <div className="sector-services">
+        <SectionTitle title="sector of services" />
+        {home.sectors?.map((sector, index) => {
+          return <SectorOfService key={index} props={sector} />;
+        })}
+      </div>
+
+      <div className="other-services">
+        <SectionTitle title="other services" />
+        {home.otherServices?.map((service, index) => {
+          return <OtherService key={index} props={service} />;
+        })}
+      </div>
+
+      <div className="about">
+        <SectionTitle title="About Calvary" />
+        <Timeline />
+        <div className="certificates">
+          {home.certificates?.images?.map((img, index) => {
+            return (
+              <div className="certificate__image" key={index}>
+                <Image {...img} />
+              </div>
+            );
+          })}
         </div>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </section>
+  );
 }

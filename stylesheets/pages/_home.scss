@@ -1,0 +1,111 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+@use "sass:math";
+
+section.home {
+  .hero {
+    max-width: 1200px;
+    margin: auto;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 20px;
+    @include breakpoint(md) {
+      padding: 0 50px;
+    }
+    @include breakpoint(lg) {
+      height: 100vh;
+    }
+
+    @include breakpoint(lg) {
+      flex-wrap: nowrap;
+    }
+
+    > * {
+      width: 100%;
+      margin: auto;
+      @include breakpoint(lg) {
+        width: 50%;
+      }
+    }
+    .hero__image {
+      max-width: 512px;
+      height: auto;
+      text-align: center;
+      img {
+        width: 100%;
+        height: 100%;
+        @include breakpoint(lg) {
+          max-width: 100%;
+        }
+      }
+    }
+    .hero__content {
+      text-align: right;
+      h1 {
+        font-weight: 900;
+        span {
+          color: #999999;
+        }
+      }
+      h2 {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .sector-services {
+    text-align: center;
+    @include breakpoint(md) {
+      display: flex;
+      flex-wrap: wrap;
+      > *:nth-child(1) {
+        width: 100%;
+      }
+
+      > *:nth-child(n + 2) {
+        width: math.div(100%, 3);
+      }
+    }
+  }
+
+  .other-services {
+    @include breakpoint(md) {
+      display: flex;
+      flex-wrap: wrap;
+
+      > *:nth-child(1) {
+        width: 100%;
+      }
+    }
+  }
+
+  .about {
+    @include breakpoint(md) {
+      display: flex;
+      flex-wrap: wrap;
+
+      > *:nth-child(1) {
+        width: 100%;
+      }
+
+      > *:nth-child(2) {
+        width: 60%;
+      }
+
+      > *:nth-child(3) {
+        width: 40%;
+      }
+    }
+    .certificates {
+      background-color: #7c7c7c;
+      text-align: center;
+
+      .certificate__image {
+        padding: 50px;
+      }
+    }
+  }
+}

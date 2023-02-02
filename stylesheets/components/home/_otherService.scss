@@ -1,0 +1,21 @@
+@use "sass:math";
+
+.other-service {
+  .other-service__image {
+    width: auto;
+    height: auto;
+    text-align: center;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .other-service__content {
+    width: 100%;
+    padding: 10px;
+  }
+  @include breakpoint(md) {
+    padding: 0 5px;
+    width: math.div(100%, 3);
+  }
+}
